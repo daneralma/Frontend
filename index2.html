@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://formspree.io/f/mreyrvqb" method="POST">
+        
+        <label>
+            Your email:
+            <input type="email" name="email" required>
+        </label>
+
+        <label>
+            Tipo de Servicio:
+            <select name="tipo_servicio" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="venta">Venta de Lencería</option>
+                <option value="apartado">Apartado de prenda</option>
+                <option value="mayorista">Pedido por mayor</option>
+                <option value="otro">Otro servicio</option>
+            </select>
+        </label>
+
+        <label>
+            El mensaje:
+            <textarea name="message"> el mensaje</textarea>
+        </label>
+
+        <section>
+            </section>
+
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

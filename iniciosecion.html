@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario</title>
+    <link rel="stylesheet" href="C:\Users\i123c\Downloads\4to\Practica 2 colegio luz del Himalaya\bootstrap-5.3.8-dist\css\bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Bootstrap JS -->
+    <script src="C:\Users\i123c\Downloads\4to\Colegio luz del himalaya\bootstrap-5.3.8-dist\bootstrap-5.3.8-dist\js\bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="C:\Users\i123c\Downloads\4to\Practica 2 colegio luz del Himalaya\css\est.css">
+    <link rel="stylesheet" type="text/css" href="css\stilos.css">
+</head>
+<body >
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 card shadow p-4">
+        <h2 class="text-center mb-4">Registro de Estudiante</h2>
+        
+        <form id="miFormulario" action="https://formsubmit.co/i123culpocom@email.com" method="POST">
+    <input type="hidden" name="_subject" value="Nuevo Registro de Formulario">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://tu-sitio.com/gracias.html">
+    <input type="hidden" name="_template" value="table">
+
+    <div class="mb-3">
+        <label for="inptname" class="form-label">Nombres Completos</label>
+        <input id="inptname" name="Nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
+        <small id="err-name" class="text-danger d-none">Por favor, ingrese al menos dos nombres.</small>
+    </div>
+
+    <div class="mb-3">
+        <label for="fech" class="form-label">Fecha de Nacimiento</label>
+        <input id="fech" name="Fecha_Nacimiento" type="date" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="telf" class="form-label">Número Celular</label>
+        <div class="input-group">
+            <span class="input-group-text">+591</span>
+            <input id="telf" name="Telefono" type="tel" class="form-control" placeholder="70000000" required>
+        </div>
+        <small id="err-telf" class="text-danger d-none">El número debe tener exactamente 8 dígitos.</small>
+    </div>
+
+    <div class="mb-3">
+        <label for="ci" class="form-label">Cédula de Identidad</label>
+        <input id="ci" name="CI" type="number" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="ema" class="form-label">Correo Electrónico</label>
+        <input id="ema" type="email" name="email" class="form-control" placeholder="nombre@ejemplo.com" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Mensaje</label>
+        <textarea name="Mensaje" class="form-control"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="contra" class="form-label">Contraseña</label>
+        <input id="contra" type="password" name="password" class="form-control">
+    </div>
+
+    <div class="d-grid gap-2">
+        <button id="btenv" type="submit" class="btn btn-primary">Enviar Formulario</button>
+    </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+<script>
+const inputNombre = document.getElementById("inptname");
+const mensajeError = document.getElementById("err-name");
+const botonEnvio = document.getElementById("btenv");
+
+inputNombre.addEventListener("input", () => {
+    // Dividimos el texto por espacios para contar las palabras
+    const palabras = inputNombre.value.trim().split(/\s+/);
+    
+    // Condición: Que no esté vacío y que tenga al menos 2 palabras
+    if (inputNombre.value.trim() !== "" && palabras.length < 2) {
+        // ERROR: Se pone rojo y muestra mensaje 
+        inputNombre.classList.add("is-invalid"); 
+        mensajeError.classList.remove("d-none");
+        botonEnvio.disabled = true; // Deshabilita el botón si hay error 
+    } else {
+        // CORRECTO: Se quita lo rojo y el mensaje
+        inputNombre.classList.remove("is-invalid");
+        inputNombre.classList.add("is-valid"); // Opcional: ponerlo en verde
+        mensajeError.classList.add("d-none");
+        botonEnvio.disabled = false; // Habilita el botón 
+    }
+});
+</script>
+<script>
+const inputTelf = document.getElementById("telf");
+const mensajeErrorTelf = document.getElementById("err-telf");
+
+const botonEnvio = document.getElementById("btenv"); 
+
+inputTelf.addEventListener("input", () => {
+   
+    // \D busca todo lo que NO sea un dígito y lo reemplaza por nada ""
+    inputTelf.value = inputTelf.value.replace(/\D/g, '');
+    
+    const valor = inputTelf.value;
+
+    // REGLA 2: Validación de longitud en tiempo real
+    if (valor.length > 0 && valor.length < 8) {
+        // ERROR: Mientras escriba y no llegue a 8, se queda ROJO
+        inputTelf.classList.add("is-invalid");
+        inputTelf.classList.remove("is-valid");
+        mensajeErrorTelf.classList.remove("d-none"); // Muestra el mensaje
+        botonEnvio.disabled = true;
+    } 
+    else if (valor.length === 8) {
+        // ÉXITO: Tiene exactamente 8 números, se pone VERDE
+        inputTelf.classList.remove("is-invalid");
+        inputTelf.classList.add("is-valid");
+        mensajeErrorTelf.classList.add("d-none"); // Esconde el mensaje
+        // Aquí no habilitamos el botón directamente, porque faltan los otros campos
+    }
+    else if (valor.length > 9) {
+        // ERROR: Si se pasa de 8, vuelve a ponerse ROJO
+        inputTelf.classList.add("is-invalid");
+        inputTelf.classList.remove("is-valid");
+        mensajeErrorTelf.classList.remove("d-none");
+        botonEnvio.disabled = true;
+    }
+    else {
+        // Si borra todo, limpiamos los colores para que no parezca error
+        inputTelf.classList.remove("is-invalid", "is-valid");
+        mensajeErrorTelf.classList.add("d-none");
+    }
+});
+</script>
+</body>
+</html>
