@@ -81,49 +81,18 @@ footer.innerHTML = `
 
 btblack.innerHTML=`
   <button id="botonOscuro">Modo Oscuro</button>
-  
 `;
 
-document.addEventListener("DOMContentLoaded", () => {
-    const btblack = document.querySelector("#btblack");
-    const info = document.querySelector("#info"); // Asegúrate de tener este ID en tu HTML
-
-    if (btblack) {
-        btblack.innerHTML = `<button id="botonOscuro" class="btn btn-outline-dark">Modo Oscuro</button>`;
-        
-        const boton = document.getElementById("botonOscuro");
-        
-        boton.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            if (document.body.classList.contains("dark-mode")) {
-                boton.textContent = "Modo Claro";
-                boton.classList.replace("btn-outline-dark", "btn-outline-light");
-            } else {
-                boton.textContent = "Modo Oscuro";
-                boton.classList.replace("btn-outline-light", "btn-outline-dark");
-            }
-        });
+  const boton = document.getElementById("botonOscuro");
+  boton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+      boton.textContent = "Modo Claro";
+    } else {
+      boton.textContent = "Modo Oscuro";
     }
+  });
 
-    if (info) {
-        info.innerHTML = `
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <img src="https://froebel.edu.bo/wp-content/uploads/2025/04/cropped-P3.jpg" class="img-fluid rounded-4 shadow-lg border border-3 border-warning" alt="Educación">
-            </div>
-            <div class="col-md-6">
-              <h2 class="text-primary fw-bold">Luz del Himalaya</h2>
-              <p class="lead">Aprendizaje basado en juegos, robótica junior y desarrollo socio-afectivo.</p>
-              <h5 class="mt-4 text-warning"><i class="bi bi-star-fill"></i> Actividades Especiales</h5>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item lead"><i class="bi bi-mic"></i> <strong>Oratoria:</strong> Certámenes de debate y declamación.</li>
-                <li class="list-group-item lead"><i class="bi bi-trophy"></i> <strong>Deportivas:</strong> Olimpiadas internas y torneos intercolegiales.</li>
-                <li class="list-group-item lead"><i class="bi bi-cpu"></i> <strong>Tecnología:</strong> Talleres de robótica y ferias de ciencia digital.</li>
-              </ul>
-            </div>
-          </div>`;
-    }
-});
 info.innerHTML=`
   <div class="row align-items-center">
     <div class="col-md-6">
