@@ -18,53 +18,54 @@
         <h2 class="text-center mb-4">Registro de Estudiante</h2>
         
         <form id="miFormulario" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="df262d73-b75b-4aea-81a5-ef2c2851c117">
 
-    <div class="mb-3">
-        <label for="inptname" class="form-label">Nombres Completos</label>
-        <input id="inptname" name="Nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
-        <small id="err-name" class="text-danger d-none">Por favor, ingrese al menos dos nombres.</small>
-    </div>
+            <div class="mb-3">
+                <label for="inptname" class="form-label">Nombres Completos</label>
+                <input id="inptname" name="Nombre" type="text" class="form-control" placeholder="Ej: Juan Pérez" required>
+                <small id="err-name" class="text-danger d-none">Por favor, ingrese al menos dos nombres.</small>
+            </div>
 
-    <div class="mb-3">
-        <label for="fech" class="form-label">Fecha de Nacimiento</label>
-        <input id="fech" name="Fecha_Nacimiento" type="date" class="form-control">
-    </div>
+            <div class="mb-3">
+                <label for="fech" class="form-label">Fecha de Nacimiento</label>
+                <input id="fech" name="Fecha_Nacimiento" type="date" class="form-control">
+            </div>
 
-    <div class="mb-3">
-        <label for="telf" class="form-label">Número Celular</label>
-        <div class="input-group">
-            <span class="input-group-text">+591</span>
-            <input id="telf" name="Telefono" type="tel" class="form-control" placeholder="70000000" required>
-        </div>
-        <small id="err-telf" class="text-danger d-none">El número debe tener exactamente 8 dígitos.</small>
-    </div>
+            <div class="mb-3">
+                <label for="telf" class="form-label">Número Celular</label>
+                <div class="input-group">
+                    <span class="input-group-text">+591</span>
+                    <input id="telf" name="Telefono" type="tel" class="form-control" placeholder="70000000" required>
+                </div>
+                <small id="err-telf" class="text-danger d-none">El número debe tener exactamente 8 dígitos.</small>
+            </div>
 
-    <div class="mb-3">
-        <label for="ci" class="form-label">Cédula de Identidad</label>
-        <input id="ci" name="CI" type="number" class="form-control">
-    </div>
+            <div class="mb-3">
+                <label for="ci" class="form-label">Cédula de Identidad</label>
+                <input id="ci" name="CI" type="number" class="form-control">
+            </div>
 
-    <div class="mb-3">
-        <label for="ema" class="form-label">Correo Electrónico</label>
-        <input id="ema" type="email" name="email" class="form-control" placeholder="nombre@ejemplo.com" required>
-    </div>
+            <div class="mb-3">
+                <label for="ema" class="form-label">Correo Electrónico</label>
+                <input id="ema" type="email" name="email" class="form-control" placeholder="nombre@ejemplo.com" required>
+            </div>
 
-    <div class="mb-3">
-        <label class="form-label">Mensaje</label>
-        <textarea name="Mensaje" class="form-control"></textarea>
-    </div>
+            <div class="mb-3">
+                <label class="form-label">Mensaje</label>
+                <textarea name="Mensaje" class="form-control"></textarea>
+            </div>
 
-    <div class="mb-3">
-        <label for="contra" class="form-label">Contraseña</label>
-        <input id="contra" type="password" name="password" class="form-control">
-    </div>
+            <div class="mb-3">
+                <label for="contra" class="form-label">Contraseña</label>
+                <input id="contra" type="password" name="password" class="form-control">
+            </div>
 
-    <div class="d-grid gap-2">
-        <button id="btenv" type="submit" class="btn btn-primary">Enviar Formulario</button>
-    </div>
+            <div class="d-grid gap-2">
+                <button id="btenv" type="submit" class="btn btn-primary">Enviar Formulario</button>
+            </div>
 
-    <input type="hidden" name="_next" value="https://tu-usuario.github.io/Frontend/gracias.html">
-</form>
+            <input type="hidden" name="_next" value="https://tu-usuario.github.io/Frontend/gracias.html">
+        </form>
 
       </div>
     </div>
@@ -137,4 +138,4 @@ inputTelf.addEventListener("input", () => {
 </script>
 </body>
 </html>
-<!--df262d73-b75b-4aea-81a5-ef2c2851c117-->
+<!---->
