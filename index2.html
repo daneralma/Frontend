@@ -7,33 +7,32 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="https://formspree.io/f/mreyrvqb" method="POST">
-        
-        <label>
-            Your email:
-            <input type="email" name="email" required>
-        </label>
+<form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="df262d73-b75b-4aea-81a5-ef2c2851c117">
+    
+    <input type="hidden" name="redirect" value="https://daneralma.github.io/Frontend/gracias.html">
 
-        <label>
-            Tipo de Servicio:
-            <select name="tipo_servicio" required>
-                <option value="" disabled selected>Seleccione una opción</option>
-                <option value="venta">Venta de Lencería</option>
-                <option value="apartado">Apartado de prenda</option>
-                <option value="mayorista">Pedido por mayor</option>
-                <option value="otro">Otro servicio</option>
-            </select>
-        </label>
+    <div class="mb-3">
+        <label class="form-label">Nombres Completos</label>
+        <input name="Nombre" type="text" class="form-control" required>
+    </div>
 
-        <label>
-            El mensaje:
-            <textarea name="message"> el mensaje</textarea>
-        </label>
+    <div class="mb-3">
+        <label class="form-label">Número Celular</label>
+        <div class="input-group">
+            <span class="input-group-text">+591</span>
+            <input name="Telefono" type="tel" class="form-control" required>
+        </div>
+    </div>
 
-        <section>
-            </section>
+    <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
 
-        <button type="submit">Send</button>
-    </form>
+    <div class="d-grid gap-2">
+        <button id="btenv" type="submit" class="btn btn-primary">Enviar Formulario</button>
+    </div>
+</form>
 </body>
 </html>
