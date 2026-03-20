@@ -81,7 +81,6 @@ footer.innerHTML = `
 
 btblack.innerHTML=`
   <button id="botonOscuro">Modo Oscuro</button>
-
 `;
 
   const boton = document.getElementById("botonOscuro");
