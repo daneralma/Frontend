@@ -20,7 +20,7 @@
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="df262d73-b75b-4aea-81a5-ef2c2851c117">
             
-            <input type="hidden" name="redirect" value="https://daneralma.github.io/Frontend/gracias.html">
+            <input type="hidden" name="redirect" value="https://daneralma.github.io/Frontend/tanks.html">
 
             <div class="mb-3">
                 <label for="inptname" class="form-label">Nombres Completos</label>
@@ -71,70 +71,62 @@
     </div>
   </div>
 <script>
-const inputNombre = document.getElementById("inptname");
-const mensajeError = document.getElementById("err-name");
-const botonEnvio = document.getElementById("btenv");
+    const inputNombre = document.getElementById("inptname");
+    const mensajeErrorName = document.getElementById("err-name");
+    const inputTelf = document.getElementById("telf");
+    const mensajeErrorTelf = document.getElementById("err-telf");
+    const botonEnvio = document.getElementById("btenv");
 
-inputNombre.addEventListener("input", () => {
-    // Dividimos el texto por espacios para contar las palabras
-    const palabras = inputNombre.value.trim().split(/\s+/);
-    
-    // Condición: Que no esté vacío y que tenga al menos 2 palabras
-    if (inputNombre.value.trim() !== "" && palabras.length < 2) {
-        // ERROR: Se pone rojo y muestra mensaje 
-        inputNombre.classList.add("is-invalid"); 
-        mensajeError.classList.remove("d-none");
-        botonEnvio.disabled = true; // Deshabilita el botón si hay error 
-    } else {
-        // CORRECTO: Se quita lo rojo y el mensaje
-        inputNombre.classList.remove("is-invalid");
-        inputNombre.classList.add("is-valid"); // Opcional: ponerlo en verde
-        mensajeError.classList.add("d-none");
-        botonEnvio.disabled = false; // Habilita el botón 
-    }
-});
-</script>
-<script>
-const inputTelf = document.getElementById("telf");
-const mensajeErrorTelf = document.getElementById("err-telf");
+    // Función única para validar todo el formulario
+    function validarFormulario() {
+        const palabras = inputNombre.value.trim().split(/\s+/);
+        const nombreValido = inputNombre.value.trim() !== "" && palabras.length >= 2;
+        const telfValido = inputTelf.value.length === 8;
 
-const botonEnvio = document.getElementById("btenv"); 
+        // Solo habilita si AMBOS son válidos
+        botonEnvio.disabled = !(nombreValido && telfValido);
+    }
 
-inputTelf.addEventListener("input", () => {
-   
-    // \D busca todo lo que NO sea un dígito y lo reemplaza por nada ""
-    inputTelf.value = inputTelf.value.replace(/\D/g, '');
-    
-    const valor = inputTelf.value;
+    // Validación de Nombre
+    inputNombre.addEventListener("input", () => {
+        const palabras = inputNombre.value.trim().split(/\s+/);
+        if (inputNombre.value.trim() !== "" && palabras.length < 2) {
+            inputNombre.classList.add("is-invalid");
+            mensajeErrorName.classList.remove("d-none");
+        } else {
+            inputNombre.classList.remove("is-invalid");
+            inputNombre.classList.add("is-valid");
+            mensajeErrorName.classList.add("d-none");
+        }
+        validarFormulario();
+    });
 
-    // REGLA 2: Validación de longitud en tiempo real
-    if (valor.length > 0 && valor.length < 8) {
-        // ERROR: Mientras escriba y no llegue a 8, se queda ROJO
-        inputTelf.classList.add("is-invalid");
-        inputTelf.classList.remove("is-valid");
-        mensajeErrorTelf.classList.remove("d-none"); // Muestra el mensaje
-        botonEnvio.disabled = true;
-    } 
-    else if (valor.length === 8) {
-        // ÉXITO: Tiene exactamente 8 números, se pone VERDE
-        inputTelf.classList.remove("is-invalid");
-        inputTelf.classList.add("is-valid");
-        mensajeErrorTelf.classList.add("d-none"); // Esconde el mensaje
-        // Aquí no habilitamos el botón directamente, porque faltan los otros campos
-    }
-    else if (valor.length > 9) {
-        // ERROR: Si se pasa de 8, vuelve a ponerse ROJO
-        inputTelf.classList.add("is-invalid");
-        inputTelf.classList.remove("is-valid");
-        mensajeErrorTelf.classList.remove("d-none");
-        botonEnvio.disabled = true;
-    }
-    else {
-        // Si borra todo, limpiamos los colores para que no parezca error
-        inputTelf.classList.remove("is-invalid", "is-valid");
-        mensajeErrorTelf.classList.add("d-none");
-    }
-});
+    // Validación de Teléfono
+    inputTelf.addEventListener("input", () => {
+        // Solo permite números
+        inputTelf.value = inputTelf.value.replace(/\D/g, '');
+        
+        // Limitar a 8 dígitos máximo para evitar errores
+        if (inputTelf.value.length > 8) {
+            inputTelf.value = inputTelf.value.slice(0, 8);
+        }
+
+        const valor = inputTelf.value;
+
+        if (valor.length > 0 && valor.length < 8) {
+            inputTelf.classList.add("is-invalid");
+            inputTelf.classList.remove("is-valid");
+            mensajeErrorTelf.classList.remove("d-none");
+        } else if (valor.length === 8) {
+            inputTelf.classList.remove("is-invalid");
+            inputTelf.classList.add("is-valid");
+            mensajeErrorTelf.classList.add("d-none");
+        } else {
+            inputTelf.classList.remove("is-invalid", "is-valid");
+            mensajeErrorTelf.classList.add("d-none");
+        }
+        validarFormulario();
+    });
 </script>
 </body>
 </html>
