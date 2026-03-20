@@ -81,9 +81,7 @@ footer.innerHTML = `
 
 btblack.innerHTML=`
   <button id="botonOscuro">Modo Oscuro</button>
-`;
-
-  const boton = document.getElementById("botonOscuro");
+    const boton = document.getElementById("botonOscuro");
   boton.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
     if (document.body.classList.contains("dark-mode")) {
@@ -92,6 +90,9 @@ btblack.innerHTML=`
       boton.textContent = "Modo Oscuro";
     }
   });
+`;
+
+
 
 info.innerHTML=`
   <div class="row align-items-center">
