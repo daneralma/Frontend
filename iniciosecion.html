@@ -56,10 +56,21 @@
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Contraseña</label>
-        <input name="password" type="password" class="form-control" id="contra">
+    <label for="profesion" class="form-label">Profesión u Ocupación</label>
+    <select id="profesion" name="Profesion" class="form-control" required>
+        <option value="" selected disabled>Seleccione una opción...</option>
+        <option value="Estudiante">Estudiante</option>
+        <option value="Docente">Docente</option>
+        <option value="Administrativo">Administrativo</option>
+        <option value="Padre de Familia">Padre de Familia</option>
+        </select>
     </div>
 
+    <div class="mb-3">
+        <label for="contra" class="form-label">Contraseña</label>
+        <input id="contra" type="password" class="form-control" placeholder="Tu clave privada">
+        <small class="text-muted">Esta contraseña no se enviará por correo por seguridad.</small>
+    </div>
     <div class="d-grid gap-2">
         <button id="btenv" type="submit" class="btn btn-primary">Enviar Formulario</button>
     </div>
